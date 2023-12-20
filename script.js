@@ -1,4 +1,4 @@
-// Assignment Code
+// Assignment Code, querySelector is used to select id="generate" in HTML and assign it to generateBtn
 let generateBtn = document.querySelector("#generate");
 
 // Special characters 
@@ -22,5 +22,14 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
+function generatePassword() {
+    const userInput = prompt(`Please enter password length (between 8 and 128 characters).`);
+    let number = parseInt(userInput);
+
+    if (number && userInput>7 && userInput<129) {
+        console.log(`Great!`)
+    }
+}
+
+// Add event listener to generate button. generateBtn is linked to the HTML id. Once it is clicked, it will call the function writePassword
 generateBtn.addEventListener("click", writePassword);
