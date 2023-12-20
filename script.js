@@ -1,5 +1,5 @@
-// Assignment Code, querySelector is used to select id="generate" in HTML and assign it to generateBtn
-let generateBtn = document.querySelector("#generate");
+// Assignment Code, querySelector is used to select id=`generate` in HTML and assign it to generateBtn
+let generateBtn = document.querySelector(`#generate`);
 
 // Special characters 
 let specialCharacters = [`@`,`%`,`+`,`\\`,`/`,`'`,`!`,`#`,`$`,`^`,`?`,`:`,`,`,`)`,`(`,`}`,`{`,`]`,`[`,`~`,`-`,`_`,`.`,];
@@ -23,21 +23,37 @@ function writePassword() {
 }
 
 function generatePassword() {
-    const passwordPool = []
-    // Prompt user to enter the password length
-    const userInput = prompt(`Please enter password length (between 8 and 128 characters).`);
+        // Prompt user to enter the password length
+    const userInput = prompt("Please enter password length (between 8 and 128 characters).");
     let number = parseInt(userInput);
-
 
         // Check to see if password length is between 8 to 128 characters. If not, then exit function. 
     if (number && userInput >= 8 && userInput <= 128) {
-        confirm('Do you want to include special characters?')
+            if (confirm("Do you want to include special characters?")); {
+                passwordPool = passwordPool.concat(specialCharacters);
+
+            } else if (confirm("Do you want to include numbers")); {
+                passwordPool = passwordPool.concat(numericCharacters);
+
+            } else if (confirm("Do you want to include lower cased characters?")); {
+                passwordPool = passwordPool.concat(lowerCasedCharacters);
+
+            } else if (confirm("Do you want to include upper cased characters?")); {
+                passwordPool = passwordPool.concat(upperCasedCharacters);
+            } 
+
+
+
+        
 
     } else {
-        alert('Please choose a number between 8 and 128 characters');
+        alert("Please choose a number between 8 and 128 characters");
         return;
     }
+
+    const passwordPool = [];
+
 }
 
 // Add event listener to generate button. generateBtn is linked to the HTML id. Once it is clicked, it will call the function writePassword
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener(`click`, writePassword);
