@@ -13,7 +13,7 @@ let lowerCasedCharacters = [`a`,`b`,`c`,`d`,`e`,`f`,`g`,`h`,`i`,`j`,`k`,`l`,`m`,
 // Uppercase characters 
 let upperCasedCharacters = [`A`,`B`,`C`,`D`,`E`,`F`,`G`,`H`,`I`,`J`,`K`,`L`,`M`,`N`,`O`,`P`,`Q`,`R`,`S`,`T`,`U`,`V`,`W`,`X`,`Y`,`Z`,];
 
-//Write password to the #password input
+//Write password to the #password input on the HTML
 function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
@@ -23,11 +23,19 @@ function writePassword() {
 }
 
 function generatePassword() {
+    const passwordPool = []
+    // Prompt user to enter the password length
     const userInput = prompt(`Please enter password length (between 8 and 128 characters).`);
     let number = parseInt(userInput);
 
-    if (number && userInput>7 && userInput<129) {
-        console.log(`Great!`)
+
+        // Check to see if password length is between 8 to 128 characters. If not, then exit function. 
+    if (number && userInput >= 8 && userInput <= 128) {
+        confirm('Do you want to include special characters?')
+
+    } else {
+        alert('Please choose a number between 8 and 128 characters');
+        return;
     }
 }
 
