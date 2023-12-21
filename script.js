@@ -14,7 +14,7 @@ let lowerCasedCharacters = [`a`,`b`,`c`,`d`,`e`,`f`,`g`,`h`,`i`,`j`,`k`,`l`,`m`,
                 // Uppercase characters 
 let upperCasedCharacters = [`A`,`B`,`C`,`D`,`E`,`F`,`G`,`H`,`I`,`J`,`K`,`L`,`M`,`N`,`O`,`P`,`Q`,`R`,`S`,`T`,`U`,`V`,`W`,`X`,`Y`,`Z`];
 
-                // Function to write password to the #password input on the HTML
+                // Calls and receive generated password from generatePassword function. This Function is used to write password to the #password input on the HTML file.
 function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
@@ -55,24 +55,31 @@ function generatePassword() {
     } else if (confirm("Please enter a number between 8 and 128. Hit OK to restart or Cancel to quit")) {
             return generatePassword();
         }
-            // This function is used to shuffle the passwordPool array. source: Fisher-Yates algorith https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj#:~:text=The%20first%20and%20simplest%20way
+            // This function is used to shuffle the passwordPool array. source: Fisher-Yates algorith https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj#:~:text=The%20first%20and%20simplest%20way           
         function shufflePasswordPool() {
-            for (let i = passwordPool.length - 1; i > 0; i-- ) {
-                const j = Math.floor(Math.random() * (i + 1));
+            // for loop, i = 0, ends loop when i > passwordPool.length, add 1 to i each loop
+            for (let i = 0; i < passwordPool.length; i++ ) {
+
+            // j = random index number 0 <= j < passwordPool.length
+                const j = Math.floor(Math.random() * passwordPool.length);
+
+            // this swap the position of passwordPool[i] and passwordPool[j]
                 const temp = passwordPool[i];
                 passwordPool[i] = passwordPool[j]
                 passwordPool[j] = temp;
             }
             return passwordPool
         }
-
+            // calls shufflePasswordPool function
     let shuffledPool = shufflePasswordPool(passwordPool);
 
+            // generate the password. getting a random index number and putting that value into an empty string
     let passwordString = "";
     for (let i = 0; i<userInput; i++) {
         let randomPassword = Math.floor(Math.random() * shuffledPool.length);
         passwordString += shuffledPool[randomPassword];
     }
+    // returns the generated password to the writePassword function
     return passwordString
     
 }
