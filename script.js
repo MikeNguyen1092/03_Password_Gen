@@ -29,11 +29,11 @@ function generatePassword() {
     let number = parseInt(userInput);
 
         // Check to see if password length is between 8 to 128 characters. If not, then exit function. 
-    if (!isNaN(number) && userInput < 8 && userInput > 128) {
+    if (!isNaN(number) && userInput <= 8 && userInput >= 128) {
         alert("Please choose a number between 8 and 128 characters");
         return;
 
-    } if (confirm("Do you want to include special characters?")); {
+    } else if (confirm("Do you want to include special characters?")); {
                 passwordPool = passwordPool.concat(specialCharacters);
 
     } if (confirm("Do you want to include numbers")); {
@@ -44,14 +44,21 @@ function generatePassword() {
 
     } if (confirm("Do you want to include upper cased characters?")); {
                 passwordPool = passwordPool.concat(upperCasedCharacters);
+                confirm(passwordPool.length)
      
     } if (passwordPool.length === 0) {
             alert("Please select at least 1 type of characters");
             generatePassword();
     } 
 
+    let passwordString = "";
+    for (let i = 0; i<userInput; i++) {
+        let randomPassword = Math.floor(Math.random() * passwordPool.length);
+        passwordString = passwordString + passwordPool[randomPassword];
+    }
+    console.log(userInput)
+    return passwordString
     
-
 }
 
 // Add event listener to generate button. generateBtn is linked to the HTML id. Once it is clicked, it will call the function writePassword
