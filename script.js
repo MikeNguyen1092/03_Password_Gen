@@ -55,13 +55,23 @@ function generatePassword() {
     } else if (confirm("Please enter a number between 8 and 128. Hit OK to restart or Cancel to quit")) {
             return generatePassword();
         }
-        
+            // This function is used to shuffle the passwordPool array. source: Fisher-Yates algorith https://dev.to/codebubb/how-to-shuffle-an-array-in-javascript-2ikj#:~:text=The%20first%20and%20simplest%20way
+        function shufflePasswordPool() {
+            for (let i = passwordPool.length - 1; i > 0; i-- ) {
+                const j = Math.floor(Math.random() * (i + 1));
+                const temp = passwordPool[i];
+                passwordPool[i] = passwordPool[j]
+                passwordPool[j] = temp;
+            }
+            return passwordPool
+        }
 
+    let shuffledPool = shufflePasswordPool(passwordPool);
 
     let passwordString = "";
     for (let i = 0; i<userInput; i++) {
-        let randomPassword = Math.floor(Math.random() * passwordPool.length);
-        passwordString = passwordString + passwordPool[randomPassword];
+        let randomPassword = Math.floor(Math.random() * shuffledPool.length);
+        passwordString += shuffledPool[randomPassword];
     }
     return passwordString
     
