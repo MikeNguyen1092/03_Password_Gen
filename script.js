@@ -25,31 +25,31 @@ function writePassword() {
 function generatePassword() {
     let passwordPool = [];
         // Prompt user to enter the password length and change the string to number
-    let userInput = parseInt(prompt("Please enter password length (between 8 and 128 characters", "8"));
+    let userInput = parseInt(prompt("Please enter password length (between 8 and 128 characters)", "8"));
 
-        // Check to see if password length is between 8 to 128 characters. If not, then exit function. not working properly
+
+        // Check to see if password length is between 8 to 128 characters. If not, then exit function.
     if (userInput >= 8 && userInput <= 128) {
-        
+                // concat special characters to passwordPool array
          if (confirm("Do you want to include special characters?")) {
-                passwordPool = passwordPool.concat(specialCharacters)
+                passwordPool = passwordPool.concat(specialCharacters);
         } 
-        
+                // concat numbers to passwordPool array
         if (confirm("Do you want to include numbers")) {
-                passwordPool = passwordPool.concat(numericCharacters)
+                passwordPool = passwordPool.concat(numericCharacters);
         } 
-        
-        if (confirm("Do you want to include lower cased characters?")) {
-                passwordPool = passwordPool.concat(lowerCasedCharacters)
+            // concat lowercase characters to passwordPool array
+        if (confirm("Do you want to include lowercase letters?")) {
+                passwordPool = passwordPool.concat(lowerCasedCharacters);
         } 
-        
-        if (confirm("Do you want to include upper cased characters?")) {
+            // concat uppercase characters to passwordPool array
+        if (confirm("Do you want to include uppercase letters?")) {
                 passwordPool = passwordPool.concat(upperCasedCharacters)
         }
         
         if (passwordPool.length === 0) {
             alert ("Please select at least 1 type of characters");
-            generatePassword();
-            return
+            return generatePassword();
         }
 
     } else {
