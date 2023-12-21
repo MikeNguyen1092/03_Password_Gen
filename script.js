@@ -24,39 +24,41 @@ function writePassword() {
 // function is called when button is pressed
 function generatePassword() {
     let passwordPool = [];
-        // Prompt user to enter the password length
-    let userInput = prompt("Please enter password length (between 8 and 128 characters).");
+        // Prompt user to enter the password length and change the string to number
+    let userInput = parseInt(prompt("Please enter password length (between 8 and 128 characters", "8"));
 
-        // Make userInput from string to a number
-    let number = parseInt(userInput);
-
-        // TODO: Check to see if password length is between 8 to 128 characters. If not, then exit function. not working properly
+        // Check to see if password length is between 8 to 128 characters. If not, then exit function. not working properly
     if (userInput >= 8 && userInput <= 128) {
         
          if (confirm("Do you want to include special characters?")) {
                 passwordPool = passwordPool.concat(specialCharacters)
-
-        } if (confirm("Do you want to include numbers")) {
-                passwordPool = passwordPool.concat(numericCharacters)
-
-        } if (confirm("Do you want to include lower cased characters?")) {
-                passwordPool = passwordPool.concat(lowerCasedCharacters)
-
-        } if (confirm("Do you want to include upper cased characters?")) {
-                passwordPool = passwordPool.concat(upperCasedCharacters)
-                confirm(passwordPool.length)
-     
-        } if (passwordPool.length === 0) {
-            alert("Please select at least 1 type of characters");
-            generatePassword();
         } 
+        
+        if (confirm("Do you want to include numbers")) {
+                passwordPool = passwordPool.concat(numericCharacters)
+        } 
+        
+        if (confirm("Do you want to include lower cased characters?")) {
+                passwordPool = passwordPool.concat(lowerCasedCharacters)
+        } 
+        
+        if (confirm("Do you want to include upper cased characters?")) {
+                passwordPool = passwordPool.concat(upperCasedCharacters)
+        }
+        
+        if (passwordPool.length === 0) {
+            alert ("Please select at least 1 type of characters");
+            generatePassword();
+            return
+        }
+
     } else {
-            alert("Please choose a number between 8 and 128 characters");
-            return;
-    }
+            alert("Please enter a number between 8 and 128");
+            return
+        }
 
     let passwordString = "";
-    for (let i = 0; i<number; i++) {
+    for (let i = 0; i<userInput; i++) {
         let randomPassword = Math.floor(Math.random() * passwordPool.length);
         passwordString = passwordString + passwordPool[randomPassword];
     }
