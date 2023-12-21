@@ -26,10 +26,12 @@ function generatePassword() {
     let passwordPool = [];
         // Prompt user to enter the password length
     let userInput = prompt("Please enter password length (between 8 and 128 characters).");
+
+        // Make userInput from string to a number
     let number = parseInt(userInput);
 
         // Check to see if password length is between 8 to 128 characters. If not, then exit function. 
-    if (number && userInput >= 8 && userInput <= 128) {
+    if (userInput >= 8 && userInput <= 128) {
         
          if (confirm("Do you want to include special characters?")); {
                 passwordPool = passwordPool.concat(specialCharacters);
@@ -54,11 +56,10 @@ function generatePassword() {
     }
 
     let passwordString = "";
-    for (let i = 0; i<userInput; i++) {
+    for (let i = 0; i<number; i++) {
         let randomPassword = Math.floor(Math.random() * passwordPool.length);
         passwordString = passwordString + passwordPool[randomPassword];
     }
-    console.log(userInput)
     return passwordString
     
 }
