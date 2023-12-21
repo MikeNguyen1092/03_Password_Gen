@@ -33,7 +33,7 @@ function generatePassword() {
         // TODO: Check to see if password length is between 8 to 128 characters. If not, then exit function. not working properly
     if (userInput >= 8 && userInput <= 128) {
         
-         if (confirm("Do you want to include special characters?")); {
+         if (confirm("Do you want to include special characters?")) {
                 passwordPool = passwordPool.concat(specialCharacters)
 
         } if (confirm("Do you want to include numbers")) {

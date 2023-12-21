@@ -21,3 +21,5 @@ MDN Math.random(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refer
 MDN querySelector(): https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
 
 MDN concat(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+
+used EdX AI chat to help
