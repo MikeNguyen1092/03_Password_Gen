@@ -23,35 +23,34 @@ function writePassword() {
 }
 
 function generatePassword() {
+    let passwordPool = [];
         // Prompt user to enter the password length
-    const userInput = prompt("Please enter password length (between 8 and 128 characters).");
+    let userInput = prompt("Please enter password length (between 8 and 128 characters).");
     let number = parseInt(userInput);
 
         // Check to see if password length is between 8 to 128 characters. If not, then exit function. 
-    if (number && userInput >= 8 && userInput <= 128) {
-            if (confirm("Do you want to include special characters?")); {
-                passwordPool = passwordPool.concat(specialCharacters);
-
-            } else if (confirm("Do you want to include numbers")); {
-                passwordPool = passwordPool.concat(numericCharacters);
-
-            } else if (confirm("Do you want to include lower cased characters?")); {
-                passwordPool = passwordPool.concat(lowerCasedCharacters);
-
-            } else if (confirm("Do you want to include upper cased characters?")); {
-                passwordPool = passwordPool.concat(upperCasedCharacters);
-            } 
-
-
-
-        
-
-    } else {
+    if (!isNaN(number) && userInput < 8 && userInput > 128) {
         alert("Please choose a number between 8 and 128 characters");
         return;
-    }
 
-    const passwordPool = [];
+    } if (confirm("Do you want to include special characters?")); {
+                passwordPool = passwordPool.concat(specialCharacters);
+
+    } if (confirm("Do you want to include numbers")); {
+                passwordPool = passwordPool.concat(numericCharacters);
+
+    } if (confirm("Do you want to include lower cased characters?")); {
+                passwordPool = passwordPool.concat(lowerCasedCharacters);
+
+    } if (confirm("Do you want to include upper cased characters?")); {
+                passwordPool = passwordPool.concat(upperCasedCharacters);
+     
+    } if (passwordPool.length === 0) {
+            alert("Please select at least 1 type of characters");
+            generatePassword();
+    } 
+
+    
 
 }
 
