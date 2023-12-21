@@ -21,7 +21,7 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
+// function is called when button is pressed
 function generatePassword() {
     let passwordPool = [];
         // Prompt user to enter the password length
@@ -29,27 +29,29 @@ function generatePassword() {
     let number = parseInt(userInput);
 
         // Check to see if password length is between 8 to 128 characters. If not, then exit function. 
-    if (!isNaN(number) && userInput <= 8 && userInput >= 128) {
-        alert("Please choose a number between 8 and 128 characters");
-        return;
-
-    } else if (confirm("Do you want to include special characters?")); {
+    if (number && userInput >= 8 && userInput <= 128) {
+        
+         if (confirm("Do you want to include special characters?")); {
                 passwordPool = passwordPool.concat(specialCharacters);
 
-    } if (confirm("Do you want to include numbers")); {
+        } if (confirm("Do you want to include numbers")); {
                 passwordPool = passwordPool.concat(numericCharacters);
 
-    } if (confirm("Do you want to include lower cased characters?")); {
+        } if (confirm("Do you want to include lower cased characters?")); {
                 passwordPool = passwordPool.concat(lowerCasedCharacters);
 
-    } if (confirm("Do you want to include upper cased characters?")); {
+        } if (confirm("Do you want to include upper cased characters?")); {
                 passwordPool = passwordPool.concat(upperCasedCharacters);
                 confirm(passwordPool.length)
      
-    } if (passwordPool.length === 0) {
+        } if (passwordPool.length === 0) {
             alert("Please select at least 1 type of characters");
             generatePassword();
-    } 
+        } 
+    } else {
+            alert("Please choose a number between 8 and 128 characters");
+            return;
+    }
 
     let passwordString = "";
     for (let i = 0; i<userInput; i++) {
