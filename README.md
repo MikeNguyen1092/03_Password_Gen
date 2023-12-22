@@ -6,7 +6,14 @@
     Open the index.html in an internet browser
 
 ## Usage
-    Open the index.html file in an internet browser. Click on the generate password button (image 1). You are then prompted to enter your desired password length between 8-128 characters, with 16 characters being the default (image 2). If the password length is less than 8 or more than 128 then a popup will alert the user (image 3). Next is if the user wants to include numbers, lowercase, uppercase, or special characters in the password. At lease one type of character has to be pick, or an alert will pop up saying "At least 1 type of character has to be pick" (image 4). The password will generate when all the criteria are met (image 5).
+    1. Open the index.html file in an internet browser. Click on the generate password button (image 1).
+
+    2. You are then prompted to enter your desired password length between 8-128 characters, with 16 characters being the default (image 2). If the password length is less than 8 or more than 128 then a popup will alert the user (image 3). 
+
+    3. Next is if the user wants to include numbers, lowercase, uppercase, or special characters in the password. At lease one type of character has to be pick, or an alert will pop up saying "At least 1 type of character has to be pick" (image 4).
+
+    4.  The password will generate when all the criteria are met (image 5).
+    
 ![Image 1: A red button that reads Generate Password.](./assets/images/Generate_Password.png)
 ![Image 2: A popup that asks you to enter your password length between 8-128 characters.](./assets/images/Password_length.png)
 ![Image 3: A popup telling the user to pick a number between 8-128.](./assets/images/Number_8-128_restart.png)
